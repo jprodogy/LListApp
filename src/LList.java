@@ -1,3 +1,7 @@
+import javax.xml.soap.Node;
+import java.util.LinkedList;
+import java.util.Random;
+
 public class LList {
     private MyNode head;    // a list is a head node and any linked nodes
 
@@ -30,6 +34,39 @@ public class LList {
         temp.next = new MyNode(data);
     }
 
+    public int size(){
+        int size = 0;
+        MyNode temp = head;
+        while(temp != null){
+            size ++;
+            temp = temp.next;
+        }
+        return size;
+    }
+
+    public LList intialize(int numOfNodes, int maxValue){
+        Random rand = new Random();
+        LList nList = new LList(rand.nextInt(maxValue));
+        for (int i = 0; i < numOfNodes - 1; i++) {
+           nList.append(rand.nextInt(maxValue));
+        }
+        return nList;
+    }
+
+    public void prepend(int data){
+        MyNode temp = head;
+        head = new MyNode(data);
+        head.next = temp;
+    }
+
+    public void insert(int value, int position){
+        MyNode temp = head;
+        for (int i = 0; i < position; i++) {
+            temp = temp.next;
+        }
+
+    }
+
     /**
      * the list without the head node
      * @return the rest of the list
@@ -46,6 +83,7 @@ public class LList {
      */
     @Override
     public String toString() {
+
         if( head.next == null )
             return Integer.toString(head.value);
         else

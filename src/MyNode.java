@@ -7,6 +7,7 @@ public class MyNode {
             next = null;
         }
 
+
         @Override
         public String toString() {
             return Integer.toString(value);

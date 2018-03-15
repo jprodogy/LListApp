@@ -14,6 +14,10 @@ public class Main {
         llist.append(30);
         System.out.println("\nappend 30 so 10-20-30?:\t" + llist);
         System.out.println("what if remove head?:\t" + llist.next());
-        
+
+        System.out.println(llist.intialize(5,10));
+
+        llist.prepend(6);
+        System.out.println(llist);
     }
 }
