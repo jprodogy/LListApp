@@ -19,5 +19,13 @@ public class Main {
 
         llist.prepend(6);
         System.out.println(llist);
+
+        llist.insert(4,1);
+        System.out.println(llist);
+
+        llist.remove(2);
+        System.out.println(llist);
+
+        System.out.println(llist.search(4));
     }
 }
