@@ -62,31 +62,44 @@ public class LList {
     public void insert(int value, int position){
         MyNode temp = head;
         MyNode prev = temp;
-        for (int i = 0; i < position; i++) {
-            prev = temp;
-            temp = temp.next;
+        if (position == 0){
+            prepend(value);
+        }else {
+            for (int i = 0; i < position; i++) {
+                prev = temp;
+                temp = temp.next;
 
+            }
+            temp = new MyNode(value);
+            temp.next = head.next;
+            prev.next = temp;
         }
-        temp = new MyNode(value);
-        temp.next = head.next;
-        prev.next = temp;
 
     }
 
     public void remove(int position){
         MyNode temp = head;
         MyNode prev = temp;
-        for (int i = 0; i < position; i++) {
-            prev = temp;
-            temp = temp.next;
+        if (position == 0){
+            head = null;
+            head = temp.next;
+        }else {
+            for (int i = 0; i < position; i++) {
+                prev = temp;
+                temp = temp.next;
 
+            }
+            prev.next = temp.next;
         }
-        prev.next = temp.next;
+
 
     }
 
     public boolean search(int value){
         MyNode temp = head;
+        if (head.value == value){
+            return true;
+        }
         while(temp.next != null){
             temp = temp.next;
             if (temp.value == value){
