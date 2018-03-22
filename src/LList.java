@@ -62,8 +62,10 @@ public class LList {
     public void insert(int value, int position){
         MyNode temp = head;
         MyNode prev = temp;
-        if (position == 0){
+        if (position == 0) {
             prepend(value);
+        }else if (position >= size() || position <= -1){
+            System.out.println("Invalid position");
         }else {
             for (int i = 0; i < position; i++) {
                 prev = temp;
