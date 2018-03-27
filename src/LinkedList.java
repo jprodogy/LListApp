@@ -37,18 +37,43 @@ public class LinkedList {
 
     public int size(){
         Node temp = head;
+        int size = 0;
         while(temp != null){
+            size++;
+        }
+        return size;
+    }
 
+    public void insert(int value, int position){
+        Node temp = head;
+        Node prev = temp;
+        if (position == 0){
+            append(value);
+        }else if (position <= size() || position >=  -1){
+            System.out.println("This is invalid");
+        }else{
+            for (int i = 0; i < position; i++) {
+                prev = temp;
+                temp = temp.next;
+            }
+            temp = new Node(value);
+            temp.next = prev;
+            prev.next = temp;
         }
     }
 
-    public void insert(){
-
+    public void remove(int position){
+        Node temp = head;
+        Node prev = temp;
+        if(position == 0){
+            head = null;
+            head = temp.next;
+        }else {
+            for (int i = 0; i < position; i++) {
+                prev = temp;
+                temp = temp.next;
+            }
+            prev.next = temp.next;
+        }
     }
-
-    public void remove(){
-
-    }
-
-
 }
